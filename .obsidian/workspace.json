@@ -180,12 +180,22 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "ff9105583ce1f4fc",
   "lastOpenFiles": [
-    "Untitled 1",
-    "Untitled"
+    "09 Контент",
+    "08 База знаний",
+    "07 Клиентские проекты",
+    "06 Кейсы",
+    "05 Ниши",
+    "04 Продажи",
+    "03 Аудит бизнеса",
+    "02 Продукты и услуги",
+    "01 Позиционирование",
+    "00 Панель управления",
+    "Untitled 1"
   ]
 }
