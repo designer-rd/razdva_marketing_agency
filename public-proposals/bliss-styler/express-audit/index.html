@@ -732,6 +732,171 @@
       color: var(--muted);
     }
 
+    .solution-board {
+      display: grid;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .solution-card {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      overflow: hidden;
+    }
+
+    .solution-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: var(--accent);
+    }
+
+    .solution-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .solution-index {
+      min-width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-dark);
+      color: var(--ink);
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .solution-card h3 {
+      margin-bottom: 6px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.05;
+    }
+
+    .solution-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-unit {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 12px;
+      background: var(--fog);
+      color: var(--muted);
+    }
+
+    .mini-unit svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--accent);
+      stroke-width: 1.7;
+      fill: none;
+      margin-top: 2px;
+    }
+
+    .visual-lane {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .lane-item {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      background: var(--soft);
+      border-left: 4px solid var(--line-dark);
+    }
+
+    .lane-item.is-hot {
+      background: var(--ivory);
+      border-left-color: var(--accent);
+    }
+
+    .lane-item b {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .impact-matrix {
+      display: grid;
+      gap: 1px;
+      margin-top: 24px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .matrix-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      background: var(--paper);
+    }
+
+    .matrix-row > * {
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .matrix-row b,
+    .matrix-row strong {
+      font-weight: 500;
+    }
+
+    .matrix-row span {
+      color: var(--muted);
+    }
+
+    .matrix-head {
+      display: none;
+      color: var(--brass);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .offer-stack {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .offer-step {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .offer-step b {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: var(--paper);
+      font-weight: 500;
+    }
+
+    .offer-step strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
     .timeline {
       display: grid;
       gap: 10px;
@@ -815,6 +980,14 @@
       .compare { grid-template-columns: 1fr 1fr; }
       .timeline { grid-template-columns: repeat(3, 1fr); }
       .locked { grid-template-columns: repeat(3, 1fr); }
+      .solution-board { grid-template-columns: repeat(2, 1fr); }
+      .solution-card.primary { grid-column: span 2; }
+      .solution-grid { grid-template-columns: repeat(3, 1fr); }
+      .visual-lane { grid-template-columns: repeat(4, 1fr); }
+      .matrix-row { grid-template-columns: 0.8fr 1.1fr 1.1fr 0.8fr; }
+      .matrix-row > * { border-bottom: 0; border-right: 1px solid var(--line); }
+      .matrix-row > *:last-child { border-right: 0; }
+      .matrix-head { display: grid; }
     }
 
     @media (min-width: 940px) {
@@ -852,6 +1025,7 @@
         <a href="#gap">Разрыв</a>
         <a href="#map">Карта</a>
         <a href="#mockups">Витрина</a>
+        <a href="#solutions">Решения</a>
         <a href="#steps">Шаги</a>
       </div>
     </div>
@@ -1120,14 +1294,136 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="solutions">
       <div class="container">
-        <span class="kicker">Следующие шаги</span>
-        <h2>Возможные следующие шаги</h2>
-        <div class="grid three">
-          <div class="card"><h3>Быстрые внедрения</h3><ul class="simple-list"><li>оффер</li><li>UGC</li><li>таблица блогеров</li><li>креативные гипотезы</li><li>структура доверия</li></ul></div>
-          <div class="card"><h3>Лендинг-витрина Bliss</h3><ul class="simple-list"><li>HTML-страница</li><li>блоки доверия</li><li>UGC/отзывы</li><li>FAQ</li><li>CTA на Kaspi/WB</li></ul></div>
-          <div class="card"><h3>Система блогеров</h3><ul class="simple-list"><li>учет блогеров</li><li>промокоды/ссылки</li><li>сценарии интеграций</li><li>партнерская презентация</li><li>расчет окупаемости</li></ul></div>
+        <span class="kicker">Что предлагаем внедрить</span>
+        <h2>Не просто “усилить бренд”, а собрать систему: доверие, трафик, учет и точки покупки.</h2>
+        <p class="lead">Ниже — рабочая структура решений. Ее можно внедрять поэтапно: сначала быстрый слой доверия, затем аналитика блогеров и тесты роста.</p>
+
+        <div class="visual-lane">
+          <div class="lane-item is-hot"><b>01</b><span>Собрать страницу доверия перед Kaspi/WB</span></div>
+          <div class="lane-item"><b>02</b><span>Считать блогеров, ссылки, промокоды и продажи</span></div>
+          <div class="lane-item"><b>03</b><span>Упаковать UGC, отзывы, гарантию и подарочный сценарий</span></div>
+          <div class="lane-item"><b>04</b><span>Подготовить тесты: креативы, партнерки, мероприятия</span></div>
+        </div>
+
+        <div class="solution-board">
+          <div class="solution-card primary">
+            <div class="solution-top">
+              <div>
+                <span class="kicker">Решение 01</span>
+                <h3>Лендинг-витрина Bliss</h3>
+                <p class="lead">Главный мост между рекомендацией блогера и покупкой на Kaspi/WB. Это не интернет-магазин, а страница, которая быстро отвечает на страхи и показывает доказательства.</p>
+              </div>
+              <span class="solution-index">01</span>
+            </div>
+            <div class="solution-grid">
+              <div class="mini-unit">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h16"/></svg>
+                <span><b>Оффер и первый экран</b><br>Понятно: что за стайлер, почему цена ниже, куда нажать дальше.</span>
+              </div>
+              <div class="mini-unit">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>
+                <span><b>Доказательства</b><br>UGC, отзывы Kaspi, видео результата, упаковка, гарантия.</span>
+              </div>
+              <div class="mini-unit">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10H7zM4 4h16v16H4z"/></svg>
+                <span><b>Переход к покупке</b><br>Кнопки на Kaspi/WB и WhatsApp без лишних шагов.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="solution-card">
+            <div class="solution-top">
+              <div>
+                <span class="kicker">Решение 02</span>
+                <h3>Система блогеров</h3>
+                <p>Чтобы канал перестал быть “на ощущениях”, нужно считать каждую интеграцию.</p>
+              </div>
+              <span class="solution-index">02</span>
+            </div>
+            <ul class="simple-list">
+              <li>таблица блогеров: цена, охваты, переходы, продажи;</li>
+              <li>промокоды или отдельные ссылки;</li>
+              <li>разные сценарии сторис/Reels;</li>
+              <li>разделение: кто дает продажи, кто дает узнаваемость.</li>
+            </ul>
+          </div>
+
+          <div class="solution-card">
+            <div class="solution-top">
+              <div>
+                <span class="kicker">Решение 03</span>
+                <h3>UGC и креативы</h3>
+                <p>Нужна библиотека коротких доказательств, а не разрозненные видео.</p>
+              </div>
+              <span class="solution-index">03</span>
+            </div>
+            <ul class="simple-list">
+              <li>5-10 сценариев сторис и Reels;</li>
+              <li>до/после, процесс укладки, распаковка;</li>
+              <li>ответы на страхи: эффект, стойкость, поломка;</li>
+              <li>креативы для ретаргетинга и повторного касания.</li>
+            </ul>
+          </div>
+
+          <div class="solution-card">
+            <div class="solution-top">
+              <div>
+                <span class="kicker">Решение 04</span>
+                <h3>Карточки Kaspi/WB</h3>
+                <p>Маркетплейс остается точкой покупки, поэтому карточка должна дожимать доверие.</p>
+              </div>
+              <span class="solution-index">04</span>
+            </div>
+            <ul class="simple-list">
+              <li>главное фото и комплект;</li>
+              <li>ответы на частые вопросы;</li>
+              <li>акцент на гарантии и отзывах;</li>
+              <li>единая логика с лендинг-витриной.</li>
+            </ul>
+          </div>
+
+          <div class="solution-card">
+            <div class="solution-top">
+              <div>
+                <span class="kicker">Решение 05</span>
+                <h3>Партнерки и мероприятия</h3>
+                <p>Bliss можно показывать там, где продукт понятен руками: салоны, визажисты, beauty-точки, подарочные подборки.</p>
+              </div>
+              <span class="solution-index">05</span>
+            </div>
+            <ul class="simple-list">
+              <li>партнерская презентация продукта;</li>
+              <li>оффер для салонов, визажистов и магазинов подарков;</li>
+              <li>мини-мероприятия: демонстрация укладки, розыгрыш, промокод;</li>
+              <li>простая таблица: расход, лиды, продажи, окупаемость.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="impact-matrix">
+          <div class="matrix-row matrix-head">
+            <strong>Что усиливаем</strong><strong>Что внедряем</strong><strong>Зачем</strong><strong>Приоритет</strong>
+          </div>
+          <div class="matrix-row">
+            <b>Доверие</b><span>лендинг-витрина, отзывы, UGC, гарантия</span><span>покупателю легче принять решение после блогера</span><strong>сначала</strong>
+          </div>
+          <div class="matrix-row">
+            <b>Блогеры</b><span>таблица, промокоды, ссылки, сценарии интеграций</span><span>становится видно, что окупается</span><strong>сначала</strong>
+          </div>
+          <div class="matrix-row">
+            <b>Покупка</b><span>Kaspi/WB карточки, FAQ, понятные CTA</span><span>меньше лишних шагов до оплаты</span><strong>следом</strong>
+          </div>
+          <div class="matrix-row">
+            <b>Рост</b><span>партнерки, мероприятия, ретаргетинг, креативные тесты</span><span>появляются новые источники, не только блогеры</span><strong>после базы</strong>
+          </div>
+        </div>
+
+        <div class="offer-stack">
+          <div class="offer-step"><b>1</b><span><strong>За 1-3 дня</strong> собрать UGC/отзывы, офферы, структуру лендинга, таблицу блогеров и первые креативные гипотезы.</span></div>
+          <div class="offer-step"><b>2</b><span><strong>За 5-7 дней</strong> собрать лендинг-витрину Bliss и связать его с Kaspi/WB/WhatsApp.</span></div>
+          <div class="offer-step"><b>3</b><span><strong>После запуска</strong> считать блогеров, тестировать сценарии, готовить партнерскую презентацию и офлайн-активации.</span></div>
         </div>
       </div>
     </section>
