@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Bliss product-style visual</title>
+  <desc id="desc">Premium beauty-style mockup of a black hair styler with soft champagne background.</desc>
+  <defs>
+    <radialGradient id="bg" cx="38%" cy="22%" r="70%">
+      <stop offset="0" stop-color="#fffaf4"/>
+      <stop offset=".55" stop-color="#ead4c6"/>
+      <stop offset="1" stop-color="#d4aa9c"/>
+    </radialGradient>
+    <linearGradient id="body" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#4d4845"/>
+      <stop offset=".4" stop-color="#151313"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" x2="1">
+      <stop offset="0" stop-color="#f2e6d9"/>
+      <stop offset=".5" stop-color="#9e9188"/>
+      <stop offset="1" stop-color="#f8f0e8"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="38" stdDeviation="34" flood-color="#3c2922" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="900" height="900" rx="90" fill="url(#bg)"/>
+  <path d="M76 606C220 438 359 379 494 429c134 50 237 10 310-120" fill="none" stroke="#fff7f0" stroke-width="32" stroke-linecap="round" opacity=".5"/>
+  <path d="M120 677c118-112 254-144 409-97 106 32 183 10 252-69" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" opacity=".45"/>
+  <g filter="url(#shadow)" transform="rotate(-18 470 460)">
+    <rect x="415" y="210" width="132" height="470" rx="58" fill="url(#body)"/>
+    <circle cx="481" cy="211" r="92" fill="url(#body)"/>
+    <circle cx="481" cy="211" r="70" fill="#1c1a19"/>
+    <circle cx="481" cy="211" r="49" fill="url(#metal)"/>
+    <circle cx="481" cy="211" r="33" fill="#171514"/>
+    <rect x="442" y="517" width="78" height="124" rx="28" fill="#0b0b0b"/>
+    <circle cx="520" cy="356" r="13" fill="#282523"/>
+    <rect x="506" y="392" width="28" height="62" rx="14" fill="#24211f"/>
+    <path d="M483 680c18 61 91 79 143 111" fill="none" stroke="#111" stroke-width="26" stroke-linecap="round"/>
+  </g>
+  <g transform="rotate(9 242 500)" filter="url(#shadow)">
+    <rect x="198" y="246" width="92" height="330" rx="42" fill="url(#body)"/>
+    <rect x="209" y="280" width="70" height="222" rx="24" fill="#24211f"/>
+    <path d="M224 301h40M220 338h48M220 375h48M220 412h48M224 449h40" stroke="url(#metal)" stroke-width="10" stroke-linecap="round" opacity=".8"/>
+  </g>
+</svg>

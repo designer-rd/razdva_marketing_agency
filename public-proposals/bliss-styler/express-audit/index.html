@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bliss: визуальная презентация экспресс-аудита маркетинговой упаковки">
+  <title>Bliss: экспресс-аудит маркетинговой упаковки</title>
+  <style>
+    :root{
+      --ink:#17110f;--muted:#76645d;--paper:#fff8f3;--milk:#fffdfb;--cream:#f4e2d4;--rose:#d9a99d;--rose2:#a76459;--gold:#e7c9a3;--line:rgba(54,35,29,.13);
+      --shadow:0 30px 90px rgba(58,35,28,.16);--r:28px;--max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,#fffaf6 0%,#f4e8df 50%,#fff9f4 100%);color:var(--ink);font-family:"Avenir Next","Helvetica Neue",Arial,sans-serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 15% 5%,rgba(217,169,157,.48),transparent 28rem),radial-gradient(circle at 85% 12%,rgba(231,201,163,.55),transparent 26rem),linear-gradient(90deg,rgba(23,17,15,.035) 1px,transparent 1px),linear-gradient(rgba(23,17,15,.035) 1px,transparent 1px);background-size:auto,auto,64px 64px,64px 64px;mask-image:linear-gradient(#000,transparent 78%);z-index:-1}
+    img,svg{max-width:100%;display:block}a{text-decoration:none;color:inherit}button,a{cursor:pointer}
+    .progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,#17110f,#a76459,#e7c9a3);z-index:80}
+    .nav{position:fixed;z-index:60;top:18px;left:18px;right:18px;max-width:1240px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 18px;border:1px solid rgba(255,255,255,.7);border-radius:999px;background:rgba(255,250,246,.82);box-shadow:0 18px 60px rgba(57,36,30,.14);backdrop-filter:blur(20px)}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.02em}.brand-b{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#17110f;color:#fff;font-size:13px}
+    .navlinks{display:none;gap:2px;color:var(--muted);font-size:13px;font-weight:750}.navlinks a{padding:9px 11px;border-radius:999px;transition:.2s}.navlinks a:hover{background:rgba(167,100,89,.1);color:var(--ink)}
+    .menu{width:42px;height:42px;border:0;border-radius:50%;background:#fff;color:var(--ink)}
+    .mobile{display:none;position:fixed;top:78px;left:18px;right:18px;z-index:55;padding:12px;border-radius:24px;background:rgba(255,250,246,.94);box-shadow:var(--shadow);backdrop-filter:blur(16px);grid-template-columns:1fr 1fr;gap:6px}.mobile.open{display:grid}.mobile a{padding:10px 12px;border-radius:999px;color:var(--muted);font-size:14px;font-weight:750}
+    .section{min-height:100vh;padding:112px 20px 70px;display:grid;align-items:center}.container{width:min(100%,var(--max));margin:auto}.deck{display:grid;gap:28px}
+    .kicker{display:inline-flex;width:max-content;gap:8px;align-items:center;padding:8px 12px;border:1px solid rgba(167,100,89,.14);border-radius:999px;background:rgba(255,255,255,.65);color:#7d4d45;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:#a76459}
+    h1,h2,h3,p{margin-top:0}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(48px,10vw,124px);line-height:.88;letter-spacing:-.055em;margin:16px 0 22px;max-width:950px}
+    h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(36px,6vw,78px);line-height:.94;letter-spacing:-.045em;margin:10px 0 14px;max-width:880px}h3{font-size:21px;line-height:1.08;letter-spacing:-.02em;margin-bottom:8px}
+    .lead{font-size:clamp(18px,2vw,25px);line-height:1.42;color:#4b3934;max-width:760px}.muted{color:var(--muted)}
+    .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:0 20px;border-radius:999px;border:1px solid transparent;font-weight:850;transition:.2s}.btn.primary{background:#17110f;color:#fff;box-shadow:0 18px 46px rgba(23,17,15,.23)}.btn.primary:hover{background:#3c2823}.btn.ghost{background:rgba(255,255,255,.7);border-color:var(--line)}.btn.ghost:hover{background:#fff;border-color:rgba(167,100,89,.28)}
+    .hero-grid{display:grid;gap:32px;align-items:center}.hero-art{position:relative;min-height:520px;border-radius:44px;background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(240,220,207,.62));border:1px solid rgba(255,255,255,.75);box-shadow:var(--shadow);overflow:hidden}.hero-art>img{width:100%;height:100%;min-height:520px;object-fit:cover}.logo-chip{position:absolute;top:24px;left:24px;display:flex;gap:10px;align-items:center;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.82);backdrop-filter:blur(14px);box-shadow:0 16px 44px rgba(23,17,15,.14)}.logo-chip img{width:82px}
+    .hero-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}.metric{padding:16px;border:1px solid rgba(255,255,255,.7);border-radius:22px;background:rgba(255,255,255,.68);box-shadow:0 18px 45px rgba(60,38,31,.08)}.metric b{display:block;font-size:clamp(22px,4vw,34px);letter-spacing:-.03em}.metric span{color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .visual-grid{display:grid;gap:16px}.card{position:relative;padding:22px;border:1px solid rgba(255,255,255,.72);border-radius:var(--r);background:rgba(255,255,255,.72);box-shadow:0 22px 64px rgba(56,34,28,.1);backdrop-filter:blur(18px);overflow:hidden}.card p{color:var(--muted);margin-bottom:0}.icon{width:42px;height:42px;border-radius:15px;display:grid;place-items:center;background:rgba(167,100,89,.11);color:#a76459;margin-bottom:14px}.icon svg{width:22px;height:22px;stroke-width:1.9}
+    .model{display:grid;gap:14px}.flow{display:grid;gap:10px}.flow-node{position:relative;padding:18px;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:0 18px 46px rgba(53,35,29,.1)}.flow-node strong{font-size:20px}.flow-node small{display:block;color:var(--muted);margin-top:3px}.arrow{display:none;color:#a76459;font-weight:900;align-self:center;text-align:center;animation:pulse 1.8s infinite}
+    .chart{padding:28px}.bar-row{display:grid;grid-template-columns:72px 1fr 86px;gap:12px;align-items:center;margin:18px 0}.bar-track{height:38px;border-radius:999px;background:#f0e3da;overflow:hidden}.bar{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#17110f,#a76459,#e7c9a3);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}.bar.bliss{max-width:17.2%}.bar.bork{max-width:77.1%}.bar.dyson{max-width:100%}.bar-label{font-weight:850}.bar-value{text-align:right;color:var(--muted);font-weight:850}
+    .break{display:grid;gap:18px}.break-panel{min-height:280px;display:grid;place-items:center;text-align:center;border-radius:36px;padding:28px;background:linear-gradient(135deg,#17110f,#654239);color:#fff;box-shadow:var(--shadow)}.break-panel h2{color:#fff;margin:auto}.gap-viz{display:grid;grid-template-columns:1fr;gap:12px}.gap-step{padding:20px;border-radius:24px;background:rgba(255,255,255,.74);border:1px solid rgba(255,255,255,.72)}.gap-step.danger{background:linear-gradient(145deg,#fff,#f3dcd5);border-color:rgba(167,100,89,.24)}
+    .loss-map{display:grid;gap:14px}.loss-card{min-height:190px}.loss-card .num{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#17110f;color:#fff;font-weight:900;margin-bottom:14px}
+    .position-map{position:relative;min-height:560px;border-radius:36px;background:linear-gradient(180deg,#fff,#f5e8df);border:1px solid rgba(255,255,255,.72);box-shadow:var(--shadow);overflow:hidden}.axis-x,.axis-y{position:absolute;background:rgba(23,17,15,.2)}.axis-x{left:68px;right:40px;bottom:76px;height:2px}.axis-y{left:68px;top:48px;bottom:76px;width:2px}.axis-label{position:absolute;color:var(--muted);font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.08em}.x-label{right:40px;bottom:38px}.y-label{left:24px;top:42px;writing-mode:vertical-rl;transform:rotate(180deg)}.point{position:absolute;display:grid;gap:6px;justify-items:center;transform:translate(-50%,-50%)}.bubble{width:24px;height:24px;border-radius:50%;background:#17110f;box-shadow:0 0 0 10px rgba(23,17,15,.08)}.point strong{padding:7px 10px;border-radius:999px;background:#fff;box-shadow:0 10px 28px rgba(23,17,15,.12);white-space:nowrap}.point.bliss-now{left:30%;bottom:38%}.point.bliss-goal{left:37%;bottom:62%}.point.dyson{left:86%;bottom:78%}.point.bork{left:72%;bottom:70%}.point.china{left:21%;bottom:24%}.point.bliss-goal .bubble{background:#a76459;box-shadow:0 0 0 14px rgba(167,100,89,.13)}
+    .competitors{display:grid;gap:14px}.comp-card{display:grid;grid-template-columns:74px 1fr;gap:16px;align-items:center}.comp-mock{width:74px;height:74px;border-radius:22px;background:linear-gradient(135deg,#17110f,#9f8b82)}.comp-card:nth-child(2) .comp-mock{background:linear-gradient(135deg,#2b2928,#d7c4ba)}.comp-card:nth-child(3) .comp-mock{background:linear-gradient(135deg,#d0c1b7,#fff)}.comp-card:nth-child(4) .comp-mock{background:linear-gradient(135deg,#a76459,#e7c9a3)}
+    .stack{display:grid;gap:12px}.proof{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border-radius:20px;background:rgba(255,255,255,.78);border:1px solid var(--line);font-weight:850}.proof span{color:#a76459}
+    .mock-grid{display:grid;gap:16px;align-items:center}.screen{border-radius:36px;overflow:hidden;box-shadow:var(--shadow);background:#fff;border:1px solid rgba(255,255,255,.72)}.screen img{width:100%}
+    .before-after{display:grid;gap:16px}.ba{padding:26px;border-radius:34px;border:1px solid rgba(255,255,255,.72);box-shadow:var(--shadow)}.ba.before{background:linear-gradient(145deg,#fff,#f3ded7)}.ba.after{background:linear-gradient(145deg,#17110f,#6b453d);color:#fff}.ba ul{padding:0;margin:16px 0 0;list-style:none;display:grid;gap:11px}.ba li{display:grid;grid-template-columns:20px 1fr;gap:10px}.ba li:before{content:"";width:9px;height:9px;border-radius:50%;background:#a76459;margin-top:8px}.ba.after li:before{background:#e7c9a3}.ba.after p,.ba.after .muted{color:rgba(255,255,255,.7)}
+    .timeline{display:grid;gap:12px}.task{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:center;padding:16px;border-radius:24px;background:rgba(255,255,255,.76);border:1px solid rgba(255,255,255,.72);box-shadow:0 18px 46px rgba(53,35,29,.09)}.task b{display:grid;place-items:center;width:46px;height:46px;border-radius:16px;background:#17110f;color:#fff}
+    .locked{display:grid;gap:12px}.lock-item{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:18px;border-radius:22px;background:rgba(255,255,255,.7);border:1px solid rgba(167,100,89,.13)}.lock-item span{color:#a76459;font-weight:900}
+    .next{display:grid;gap:16px}.next-card{min-height:310px;display:flex;flex-direction:column}.tag{width:max-content;padding:7px 10px;border-radius:999px;background:rgba(167,100,89,.1);color:#7d4d45;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.next-card ul{padding:0;margin:16px 0 0;display:grid;gap:10px;list-style:none;color:var(--muted);font-weight:650}.next-card li:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#a76459;margin-right:9px;vertical-align:middle}
+    .final{min-height:92vh}.final-card{padding:clamp(30px,6vw,70px);border-radius:44px;background:linear-gradient(135deg,#17110f,#6a443b);color:#fff;box-shadow:var(--shadow);overflow:hidden;position:relative}.final-card:after{content:"";position:absolute;right:-120px;bottom:-120px;width:360px;height:360px;border-radius:50%;background:rgba(231,201,163,.16)}.final-card h2{color:#fff;position:relative}.final-card p{color:rgba(255,255,255,.74);max-width:720px;position:relative}.final-card .btns{position:relative}.note{font-size:13px;color:var(--muted);font-weight:700}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+    @keyframes pulse{0%,100%{opacity:.35;transform:translateX(0)}50%{opacity:1;transform:translateX(6px)}}
+    @media(min-width:760px){.section{padding:120px 28px 80px}.hero-grid,.model,.break,.mock-grid,.before-after{grid-template-columns:1fr 1fr}.visual-grid{grid-template-columns:repeat(3,1fr)}.loss-map{grid-template-columns:repeat(5,1fr)}.competitors,.next{grid-template-columns:repeat(4,1fr)}.timeline{grid-template-columns:repeat(3,1fr)}.locked{grid-template-columns:repeat(3,1fr)}.flow{grid-template-columns:repeat(5,1fr);align-items:center}.arrow{display:block}.flow-node{min-height:148px}.section.split{grid-template-columns:1fr}}
+    @media(min-width:1000px){.navlinks{display:flex}.menu{display:none}.mobile{display:none!important}.hero-art{min-height:650px}.hero-art>img{min-height:650px}.timeline{grid-template-columns:repeat(6,1fr)}}
+    @media(max-width:620px){.hero-metrics{grid-template-columns:1fr}.bar-row{grid-template-columns:1fr}.bar-value{text-align:left}.position-map{min-height:480px}.point strong{font-size:11px}.section{padding-left:16px;padding-right:16px}.competitors{grid-template-columns:1fr}.comp-card{grid-template-columns:56px 1fr}.comp-mock{width:56px;height:56px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <nav class="nav">
+    <a class="brand" href="#top"><span class="brand-b">B</span><span>Bliss audit</span></a>
+    <div class="navlinks">
+      <a href="#model">Модель</a><a href="#price">Цена</a><a href="#gap">Разрыв</a><a href="#map">Карта</a><a href="#showcase">Витрина</a><a href="#steps">Шаги</a>
+    </div>
+    <button class="menu" id="menu" aria-label="Открыть меню">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" stroke-width="2"/>
+      </svg>
+    </button>
+  </nav>
+  <div class="mobile" id="mobile"><a href="#model">Модель</a><a href="#price">Цена</a><a href="#gap">Разрыв</a><a href="#map">Карта</a><a href="#showcase">Витрина</a><a href="#steps">Шаги</a></div>
+
+  <main id="top">
+    <section class="section">
+      <div class="container hero-grid">
+        <div class="deck reveal">
+          <span class="kicker">Express audit / RazDva / 2026</span>
+          <h1>Bliss: экспресс-аудит маркетинговой упаковки</h1>
+          <p class="lead">Как усилить доверие к бренду, блогерский трафик и путь покупателя до Kaspi/WB.</p>
+          <div class="hero-metrics">
+            <div class="metric"><b><span data-count="60000">0</span> тг</b><span>цена</span></div>
+            <div class="metric"><b><span data-count="50">0</span></b><span>продаж цель</span></div>
+            <div class="metric"><b>Kaspi/WB</b><span>канал покупки</span></div>
+          </div>
+          <div class="btns"><a class="btn primary" href="https://wa.me/77000000000?text=Здравствуйте,%20хочу%20обсудить%20Bliss">Обсудить внедрение</a><a class="btn ghost" href="#model">Смотреть анализ</a></div>
+        </div>
+        <div class="hero-art reveal">
+          <span class="logo-chip"><img src="assets/bliss-logo.svg" alt="Bliss"><b>audit deck</b></span>
+          <img src="assets/bliss-hero-product.svg" alt="Визуальный mockup стайлера Bliss">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="model">
+      <div class="container model">
+        <div class="deck reveal">
+          <span class="kicker">Business model</span>
+          <h2>Канал уже работает. Следующая задача — сделать путь доверия управляемым.</h2>
+          <p class="lead">Сейчас блогер создает интерес. Между интересом и покупкой нужна зона доказательств: результат, UGC, отзывы, гарантия и понятный переход на Kaspi/WB.</p>
+        </div>
+        <div class="screen reveal"><img src="assets/funnel-visual.svg" alt="Схема воронки блогер - доказательства - Kaspi/WB"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="deck reveal">
+          <span class="kicker">Что уже работает</span>
+          <h2>Сильная база уже есть</h2>
+        </div>
+        <div class="visual-grid">
+          <article class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 18V6m0 12h16M8 15V9m4 6V5m4 10v-3" stroke-linecap="round"/></svg></div><h3>Блогеры дают продажи</h3><p>Рабочий канал уже найден.</p></article>
+          <article class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 8h12l1 12H5L6 8Zm3 0a3 3 0 0 1 6 0" stroke-linecap="round"/></svg></div><h3>Kaspi/WB привычны</h3><p>Покупка происходит в знакомой среде.</p></article>
+          <article class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m12 3 3 6 6 .8-4.5 4.3 1.1 6-5.6-3-5.6 3 1.1-6L3 9.8 9 9l3-6Z"/></svg></div><h3>Есть UGC и отзывы</h3><p>Доказательства уже есть, их нужно собрать.</p></article>
+          <article class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 12H4m8-8v16" stroke-linecap="round"/></svg></div><h3>Цена ниже Bork/Dyson</h3><p>Сильная ценовая позиция.</p></article>
+          <article class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 12v8H4v-8m16 0H4m16 0-2-5H6l-2 5m8-5v13" stroke-linecap="round"/></svg></div><h3>Подарочная упаковка</h3><p>Отдельная точка роста перед праздниками.</p></article>
+          <article class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 19c4-9 10-14 14-14-1 8-6 13-14 14Z" stroke-linecap="round"/></svg></div><h3>Понятная ценность</h3><p>Красивая укладка дома без 270-350к.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="price">
+      <div class="container model">
+        <div class="chart card reveal">
+          <span class="kicker">Price map</span>
+          <h2>Сравнение цены</h2>
+          <div class="bar-row"><b class="bar-label">Bliss</b><div class="bar-track"><div class="bar bliss" data-width="17.2%"></div></div><b class="bar-value">60k</b></div>
+          <div class="bar-row"><b class="bar-label">Bork</b><div class="bar-track"><div class="bar bork" data-width="77.1%"></div></div><b class="bar-value">270k</b></div>
+          <div class="bar-row"><b class="bar-label">Dyson</b><div class="bar-track"><div class="bar dyson" data-width="100%"></div></div><b class="bar-value">350k</b></div>
+          <p class="muted">Bliss находится в сильной ценовой позиции. Но низкая цена требует усиленного доверия, чтобы покупатель не считал продукт случайным аналогом.</p>
+        </div>
+        <div class="card reveal">
+          <span class="kicker">Цель и ориентир</span>
+          <h2><span data-count="3000000">0</span> тг</h2>
+          <p class="lead">Потенциальная выручка при 50 продажах по 60 000 тг.</p>
+          <div class="metric"><b><span data-count="1200000">0</span> тг</b><span>ориентир валовой маржи</span></div>
+          <p class="note">Ориентир по данным брифа. Точный расчет требует учета комиссий, доставки, возвратов, гарантий и рекламы.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gap">
+      <div class="container break">
+        <div class="break-panel reveal"><h2>Блогер уже создает интерес. Но дальше покупателю нужны доказательства.</h2></div>
+        <div class="gap-viz reveal">
+          <div class="gap-step"><h3>Интерес есть</h3><p>Сторис/Reels блогера привлекает внимание.</p></div>
+          <div class="gap-step danger"><h3>Доверия не хватает</h3><p>Нужно увидеть результат, гарантию, отзывы и понятный бренд.</p></div>
+          <div class="gap-step"><h3>Покупка откладывается</h3><p>Человек уходит сравнивать или искать подтверждения самостоятельно.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="deck reveal"><span class="kicker">Loss map</span><h2>Карта точек потери</h2></div>
+        <div class="loss-map">
+          <article class="card loss-card reveal"><span class="num">1</span><h3>Эффект как в рекламе</h3><p>Показать реальный процесс и результат.</p></article>
+          <article class="card loss-card reveal"><span class="num">2</span><h3>Неизвестность бренда</h3><p>Раскрыть Bliss как самостоятельный бренд.</p></article>
+          <article class="card loss-card reveal"><span class="num">3</span><h3>Аналитика блогеров</h3><p>Считать интеграции, ссылки и промокоды.</p></article>
+          <article class="card loss-card reveal"><span class="num">4</span><h3>Страница доверия</h3><p>Собрать доказательства перед Kaspi/WB.</p></article>
+          <article class="card loss-card reveal"><span class="num">5</span><h3>Подарочные сценарии</h3><p>Собрать упаковку, UGC и отзывы в систему.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="map">
+      <div class="container">
+        <div class="deck reveal"><span class="kicker">Position map</span><h2>Позиционная карта</h2><p class="muted">Стратегическая гипотеза, а не точное исследование рынка.</p></div>
+        <div class="position-map reveal">
+          <div class="axis-x"></div><div class="axis-y"></div><span class="axis-label x-label">Цена выше</span><span class="axis-label y-label">Доверие / бренд выше</span>
+          <div class="point dyson"><span class="bubble"></span><strong>Dyson</strong></div>
+          <div class="point bork"><span class="bubble"></span><strong>Bork</strong></div>
+          <div class="point china"><span class="bubble"></span><strong>Китайские аналоги</strong></div>
+          <div class="point bliss-now"><span class="bubble"></span><strong>Bliss сейчас</strong></div>
+          <div class="point bliss-goal"><span class="bubble"></span><strong>Bliss цель</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container model">
+        <div class="deck reveal"><span class="kicker">Competitor context</span><h2>Конкурентный контекст</h2></div>
+        <div class="competitors">
+          <article class="card comp-card reveal"><span class="comp-mock"></span><div><h3>Dyson</h3><p>Высокая цена, сильное доверие, бренд-референс.</p></div></article>
+          <article class="card comp-card reveal"><span class="comp-mock"></span><div><h3>Bork</h3><p>Премиальная подача и сильная упаковка.</p></div></article>
+          <article class="card comp-card reveal"><span class="comp-mock"></span><div><h3>Китайские аналоги</h3><p>Низкая цена, но часто ниже доверие.</p></div></article>
+          <article class="card comp-card reveal"><span class="comp-mock"></span><div><h3>Bliss</h3><p>Доступная цена + задача усилить бренд-доверие.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container model">
+        <div class="deck reveal"><span class="kicker">Proof system</span><h2>Что нужно усилить</h2><p class="lead">Система доказательств должна отвечать на страхи покупателя до перехода на маркетплейс.</p></div>
+        <div class="stack reveal">
+          <div class="proof"><b>Real result</b><span>до/после</span></div>
+          <div class="proof"><b>UGC</b><span>видео блогеров</span></div>
+          <div class="proof"><b>Reviews</b><span>Kaspi + social proof</span></div>
+          <div class="proof"><b>Warranty</b><span>условия и надежность</span></div>
+          <div class="proof"><b>Gift packaging</b><span>подарочный сценарий</span></div>
+          <div class="proof"><b>FAQ</b><span>страхи и ответы</span></div>
+          <div class="proof"><b>Marketplace CTA</b><span>Kaspi/WB</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="showcase">
+      <div class="container mock-grid">
+        <div class="screen reveal"><img src="assets/instagram-mockup.svg" alt="Mockup Instagram UGC"></div>
+        <div class="deck reveal"><span class="kicker">Landing showcase</span><h2>Лендинг-витрина</h2><p class="lead">Это не интернет-магазин. Это страница доверия перед переходом на Kaspi/WB.</p><p class="muted">Mockup: пример структуры. Реальные скрины и отзывы можно заменить позже.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container mock-grid">
+        <div class="deck reveal"><span class="kicker">Marketplace route</span><h2>Витрина ведет к покупке, а не заменяет marketplace</h2><p class="lead">Hero, результат, UGC, отзывы, гарантия, FAQ и кнопки Kaspi/WB собираются в одну доказательную систему.</p></div>
+        <div class="screen reveal"><img src="assets/marketplace-mockup.svg" alt="Mockup карточки marketplace"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container before-after">
+        <div class="ba before reveal"><span class="kicker">Сейчас</span><h2>Интерес есть, но доказательства разбросаны</h2><ul><li>блогер дает интерес;</li><li>человек сам ищет доказательства;</li><li>трудно понять, какой блогер окупается;</li><li>UGC/отзывы не собраны в одну систему.</li></ul></div>
+        <div class="ba after reveal"><span class="kicker">После</span><h2>Путь становится понятнее</h2><ul><li>блогер ведет в систему доверия;</li><li>есть страница доказательств;</li><li>блогеры считаются по таблице/промокодам;</li><li>UGC и отзывы работают как social proof;</li><li>переход до Kaspi/WB становится логичнее.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="section" id="steps">
+      <div class="container">
+        <div class="deck reveal"><span class="kicker">1-3 дня</span><h2>Быстрые внедрения</h2></div>
+        <div class="timeline">
+          <div class="task reveal"><b>01</b><span>Собрать UGC/отзывы</span></div>
+          <div class="task reveal"><b>02</b><span>Выписать возражения</span></div>
+          <div class="task reveal"><b>03</b><span>Собрать таблицу блогеров</span></div>
+          <div class="task reveal"><b>04</b><span>Сформулировать 3-5 офферов</span></div>
+          <div class="task reveal"><b>05</b><span>Подготовить структуру лендинга</span></div>
+          <div class="task reveal"><b>06</b><span>Подготовить 5 креативных гипотез</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container model">
+        <div class="deck reveal"><span class="kicker">Deeper layer</span><h2>Что требует полного анализа</h2><p class="lead">Это причина для платного анализа: здесь нужны данные, иначе решения по бюджетам будут неточными.</p></div>
+        <div class="locked reveal">
+          <div class="lock-item"><b>Продажи по месяцам</b><span>locked</span></div><div class="lock-item"><b>Продажи после блогеров</b><span>locked</span></div><div class="lock-item"><b>Стоимость блогера</b><span>locked</span></div><div class="lock-item"><b>Чистая прибыль</b><span>locked</span></div><div class="lock-item"><b>Комиссии Kaspi/WB</b><span>locked</span></div><div class="lock-item"><b>Возвраты/гарантии</b><span>locked</span></div><div class="lock-item"><b>Конкуренты Kaspi/WB</b><span>locked</span></div><div class="lock-item"><b>ROMI по каналам</b><span>locked</span></div><div class="lock-item"><b>WB Россия</b><span>locked</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="deck reveal"><span class="kicker">Next moves</span><h2>Возможные следующие шаги</h2></div>
+        <div class="next">
+          <article class="card next-card reveal"><span class="tag">01</span><h3>Быстрые внедрения</h3><ul><li>оффер</li><li>UGC</li><li>таблица блогеров</li><li>креативные гипотезы</li><li>структура доверия</li></ul></article>
+          <article class="card next-card reveal"><span class="tag">02</span><h3>Лендинг-витрина Bliss</h3><ul><li>HTML-страница</li><li>блоки доверия</li><li>UGC/отзывы</li><li>FAQ</li><li>CTA на Kaspi/WB</li></ul></article>
+          <article class="card next-card reveal"><span class="tag">03</span><h3>Система блогеров</h3><ul><li>учет блогеров</li><li>промокоды/ссылки</li><li>сценарии интеграций</li><li>партнерская презентация</li><li>расчет окупаемости</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final">
+      <div class="container final-card reveal">
+        <span class="kicker">Final CTA</span>
+        <h2>Bliss уже имеет рабочий канал. Следующий шаг — сделать его управляемым.</h2>
+        <p class="lead">Можно усилить доверие к бренду, собрать доказательства в одну систему и точнее считать эффективность блогеров.</p>
+        <div class="btns"><a class="btn primary" style="background:#fff;color:#17110f" href="https://wa.me/77000000000?text=Здравствуйте,%20хочу%20обсудить%20Bliss">Обсудить быстрые внедрения</a><a class="btn ghost" style="color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08)" href="https://wa.me/77000000000?text=Здравствуйте,%20хочу%20обсудить%20Bliss">Собрать лендинг-витрину</a></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const progress=document.getElementById('progress'),menu=document.getElementById('menu'),mobile=document.getElementById('mobile');
+    menu.addEventListener('click',()=>mobile.classList.toggle('open'));
+    mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobile.classList.remove('open')));
+    function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;progress.style.width=(h?scrollY/h*100:0)+'%'}
+    addEventListener('scroll',onScroll,{passive:true});onScroll();
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');if(e.target.querySelectorAll){e.target.querySelectorAll('.bar').forEach(b=>b.style.width=b.dataset.width)}}}),{threshold:.18});
+    document.querySelectorAll('.reveal,.chart').forEach(el=>io.observe(el));
+    const countEls=[...document.querySelectorAll('[data-count]')];let counted=false;
+    const countObserver=new IntersectionObserver(entries=>{if(counted)return;if(entries.some(e=>e.isIntersecting)){counted=true;countEls.forEach(el=>{const target=+el.dataset.count;const duration=1200;const start=performance.now();function tick(now){const p=Math.min(1,(now-start)/duration);const eased=1-Math.pow(1-p,3);el.textContent=Math.round(target*eased).toLocaleString('ru-RU');if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)})}},{threshold:.25});
+    countEls.forEach(el=>countObserver.observe(el));
+  </script>
+</body>
+</html>

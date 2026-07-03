@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 980" role="img" aria-labelledby="title desc">
+  <title id="title">Instagram UGC mockup</title>
+  <desc id="desc">Conceptual Instagram-style mockup for UGC and blogger stories.</desc>
+  <defs>
+    <linearGradient id="phone" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#2b2522"/><stop offset="1" stop-color="#050505"/></linearGradient>
+    <linearGradient id="story" x1="0" x2="1"><stop stop-color="#d8a69b"/><stop offset="1" stop-color="#f0d5bd"/></linearGradient>
+  </defs>
+  <rect width="820" height="980" rx="72" fill="#fff7f2"/>
+  <rect x="176" y="70" width="468" height="840" rx="64" fill="url(#phone)"/>
+  <rect x="203" y="118" width="414" height="744" rx="38" fill="#fbf5f0"/>
+  <rect x="235" y="150" width="76" height="76" rx="38" fill="url(#story)"/>
+  <rect x="330" y="162" width="168" height="16" rx="8" fill="#211d1b"/>
+  <rect x="330" y="192" width="108" height="12" rx="6" fill="#9b8a82"/>
+  <rect x="235" y="260" width="350" height="350" rx="34" fill="#e9d7ca"/>
+  <path d="M276 510c64-84 139-108 225-72 40 17 69 12 84-14v155H235v-26c14-2 28-16 41-43Z" fill="#d4a79a"/>
+  <circle cx="451" cy="384" r="72" fill="#171514"/>
+  <rect x="282" y="640" width="254" height="18" rx="9" fill="#211d1b"/>
+  <rect x="282" y="678" width="304" height="14" rx="7" fill="#a9988f"/>
+  <rect x="282" y="710" width="224" height="14" rx="7" fill="#a9988f"/>
+  <rect x="282" y="770" width="172" height="48" rx="24" fill="#171514"/>
+  <text x="368" y="800" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">UGC / Reels</text>
+  <text x="410" y="934" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#6a5148">mockup: Instagram / UGC</text>
+</svg>
