@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "07 Клиентские проекты/_Шаблон клиента.md",
+                "file": "07 Клиентские проекты/Стайлер Bliss/08. Анализ ниши.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "_Шаблон клиента"
+              "title": "08. Анализ ниши"
             }
           }
         ]
@@ -184,8 +184,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d0a2374e71404cde",
+  "active": "b8cd86a317c65b89",
   "lastOpenFiles": [
+    "07 Клиентские проекты/_Шаблон клиента.md",
+    "07 Клиентские проекты/Стайлер Bliss/09. Выжимка для презентации.md",
+    "07 Клиентские проекты/Стайлер Bliss/08. Анализ ниши.md",
     "public-proposals/bliss-styler/express-audit/assets/product-6.jpg",
     "public-proposals/bliss-styler/express-audit/assets/product-5.jpg",
     "public-proposals/bliss-styler/express-audit/assets/product-4.jpg",
@@ -199,7 +202,6 @@
     "public-proposals/bliss-styler/express-audit/assets/bliss-hero-product.svg",
     "public-proposals/bliss-styler/express-audit/assets/product-2.jpg",
     "public-proposals/bliss-styler/express-audit/assets/product-3.jpg",
-    "public-proposals/bliss-styler/express-audit/assets/product-1.jpg",
     "public-proposals/bliss-styler/express-audit/assets",
     "public-proposals/bliss-styler/express-audit",
     "public-proposals/bliss-styler",
@@ -208,7 +210,6 @@
     "public-proposals/bliss/express-audit",
     "public-proposals/bliss",
     "07 Клиентские проекты/CRM.md",
-    "07 Клиентские проекты/_Шаблон клиента.md",
     "07 Клиентские проекты/Стайлер Bliss/02. Предварительный анализ.md",
     "07 Клиентские проекты/Стайлер Bliss/01. Бриф и ответы.md",
     "07 Клиентские проекты/Стайлер Bliss/03. Экспресс-аудит для клиента.md",
@@ -230,7 +231,6 @@
     "02 Продукты и услуги/Платный маркетинговый аудит.md",
     "02 Продукты и услуги/Быстрая упаковка бизнеса за 7 дней.md",
     "02 Продукты и услуги/Бесплатный экспресс-аудит.md",
-    "04 Продажи/Шаблон коммерческого предложения.md",
-    "08 База знаний/Инструменты маркетинга.md"
+    "04 Продажи/Шаблон коммерческого предложения.md"
   ]
 }
