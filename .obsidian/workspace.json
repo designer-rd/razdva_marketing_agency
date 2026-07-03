@@ -184,19 +184,22 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b8cd86a317c65b89",
+  "active": "d0a2374e71404cde",
   "lastOpenFiles": [
+    "public-proposals/bliss/express-audit/assets/bliss-logo.svg",
+    "public-proposals/bliss/express-audit/assets/product-4.jpg",
+    "public-proposals/bliss/express-audit/assets/product-3.jpg",
+    "public-proposals/bliss/express-audit/assets/product-2.jpg",
+    "public-proposals/bliss/express-audit/assets/product-1.jpg",
+    "public-proposals/bliss/express-audit/assets",
+    "public-proposals/bliss/express-audit",
+    "public-proposals/bliss",
     "07 Клиентские проекты/Стайлер Bliss/Logo.svg",
     "07 Клиентские проекты/Стайлер Bliss/Instagram post - 4.jpg",
     "07 Клиентские проекты/Стайлер Bliss/Instagram post - 3.jpg",
     "07 Клиентские проекты/Стайлер Bliss/Instagram post - 2.jpg",
     "07 Клиентские проекты/Стайлер Bliss/Instagram post - 1.jpg",
     "07 Клиентские проекты/Стайлер Bliss/Bliss Anara/Instagram post - 3.jpg",
-    "07 Клиентские проекты/Стайлер Bliss/Bliss Anara/Instagram post - 2.jpg",
-    "07 Клиентские проекты/Стайлер Bliss/Bliss Anara/Instagram post - 1.jpg",
-    "07 Клиентские проекты/Стайлер Bliss/Bliss Anara/Instagram post - 4.jpg",
-    "07 Клиентские проекты/Стайлер Bliss/1080x1080/1080x1080-8.jpg",
-    "07 Клиентские проекты/Стайлер Bliss/1080x1080/1080x1080-9.jpg",
     "07 Клиентские проекты/Стайлер Bliss/Frame 1.eps",
     "07 Клиентские проекты/Стайлер Bliss/Bliss Anara.zip",
     "07 Клиентские проекты/Стайлер Bliss/Bliss Anara",
@@ -228,9 +231,6 @@
     "02 Продукты и услуги/Быстрая упаковка бизнеса за 7 дней.md",
     "02 Продукты и услуги/Бесплатный экспресс-аудит.md",
     "04 Продажи/Шаблон коммерческого предложения.md",
-    "08 База знаний/Инструменты маркетинга.md",
-    "public-proposals",
-    "10 КП и предложения",
-    "09 Контент"
+    "08 База знаний/Инструменты маркетинга.md"
   ]
 }
