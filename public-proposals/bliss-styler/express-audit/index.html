@@ -74,7 +74,7 @@
     }
 
     .brand-logo {
-      width: 94px;
+      width: 92px;
       height: auto;
       display: block;
     }
@@ -86,8 +86,8 @@
     }
 
     .mark {
-      width: 38px;
-      height: 38px;
+      width: 118px;
+      height: 42px;
       display: grid;
       place-items: center;
       border: 1px solid var(--line-dark);
@@ -326,7 +326,7 @@
     }
 
     .logo-chip img {
-      width: 72px;
+      width: 78px;
       height: auto;
       display: block;
     }
@@ -353,7 +353,7 @@
       letter-spacing: 0;
     }
 
-    .metric span,
+    .metric > span,
     .metric small {
       display: block;
       color: var(--muted);
@@ -805,6 +805,7 @@
 
     @media (min-width: 760px) {
       .nav-links { display: flex; }
+      .brand-note { display: inline; }
       .two { grid-template-columns: 1fr 1fr; }
       .three { grid-template-columns: repeat(3, 1fr); }
       .five { grid-template-columns: repeat(5, 1fr); }
@@ -816,11 +817,23 @@
       .locked { grid-template-columns: repeat(3, 1fr); }
     }
 
+    @media (min-width: 940px) {
+      .showcase-top { grid-template-columns: 1.08fr 0.92fr; }
+      .showcase-photo { min-height: 360px; }
+    }
+
     @media (max-width: 640px) {
+      .section { padding: 58px 16px; }
+      .hero { padding-top: 42px; }
+      h1 { font-size: clamp(38px, 12vw, 52px); }
+      .hero-media,
+      .hero-media video { min-height: 430px; }
       .bar-row { grid-template-columns: 1fr; }
       .position-map { min-height: 430px; }
       .point strong { font-size: 10px; }
       .placeholder { min-height: 240px; }
+      .media-label { align-items: flex-start; flex-direction: column; }
+      .photo-strip { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -829,13 +842,16 @@
 
   <nav class="nav">
     <div class="nav-inner">
-      <a class="brand" href="#top"><span class="mark">B</span><span>Bliss audit prototype</span></a>
+      <a class="brand" href="#top">
+        <span class="mark"><img class="brand-logo" src="assets/Logo.svg" alt="Bliss"></span>
+        <span class="brand-note">экспресс-аудит RazDva</span>
+      </a>
       <div class="nav-links">
         <a href="#model">Модель</a>
         <a href="#price">Цена</a>
         <a href="#gap">Разрыв</a>
         <a href="#map">Карта</a>
-        <a href="#mockups">Mockup</a>
+        <a href="#mockups">Витрина</a>
         <a href="#steps">Шаги</a>
       </div>
     </div>
@@ -844,40 +860,44 @@
   <main id="top">
     <section class="section hero">
       <div class="container grid two">
-        <div>
-          <span class="kicker">Express audit / prototype</span>
+        <div class="hero-copy">
+          <span class="kicker">Экспресс-аудит / RazDva</span>
           <h1>Bliss: экспресс-аудит маркетинговой упаковки</h1>
           <p class="lead">Как усилить доверие к бренду, блогерский трафик и путь покупателя до Kaspi/WB.</p>
           <div class="metric-row">
-            <div class="metric"><b><span data-count="60000">0</span> тг</b><span>цена</span></div>
-            <div class="metric"><b><span data-count="50">0</span></b><span>продаж цель</span></div>
-            <div class="metric"><b>Kaspi/WB</b><span>канал покупки</span></div>
+            <div class="metric"><span>цена продукта</span><b><span data-count="60000">0</span> <span class="currency">тг</span></b><small>по данным брифа</small></div>
+            <div class="metric"><span>цель на месяц</span><b><span data-count="50">0</span></b><small>продаж в месяц</small></div>
+            <div class="metric"><span>покупка</span><b>Kaspi/WB</b><small>маркетплейсы</small></div>
           </div>
           <div class="btns">
             <a class="btn primary" href="https://wa.me/77000000000?text=Здравствуйте,%20хочу%20обсудить%20Bliss">Обсудить внедрение</a>
             <a class="btn" href="#model">Смотреть выводы</a>
           </div>
         </div>
-        <div class="placeholder" aria-label="Product visual placeholder">
-          <span>product / brand visual placeholder</span>
+        <div class="hero-media" aria-label="Видео Bliss">
+          <video src="assets/hero-video.mp4" autoplay muted loop playsinline poster="assets/product-1.jpg"></video>
+          <div class="media-label">
+            <span>Видео для первого экрана: продукт в руках, beauty-контекст, живой образ бренда</span>
+            <span class="logo-chip"><img src="assets/Logo.svg" alt="Bliss"></span>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="model">
       <div class="container">
-        <span class="kicker">Business model</span>
+        <span class="kicker">Модель пути</span>
         <h2>Канал уже работает. Следующая задача — сделать путь доверия управляемым.</h2>
         <div class="flow">
-          <div class="flow-node"><strong>Блогер</strong><span class="muted">создает интерес</span></div>
+          <div class="flow-node"><span class="icon-line">01</span><strong>Блогер</strong><span class="muted">создает интерес</span></div>
           <div class="arrow">→</div>
-          <div class="flow-node"><strong>Интерес</strong><span class="muted">человек хочет проверить</span></div>
+          <div class="flow-node"><span class="icon-line">02</span><strong>Интерес</strong><span class="muted">человек хочет проверить</span></div>
           <div class="arrow">→</div>
-          <div class="flow-node"><strong>Доказательства</strong><span class="muted">UGC / отзывы / гарантия</span></div>
+          <div class="flow-node"><span class="icon-line">03</span><strong>Доказательства</strong><span class="muted">UGC / отзывы / гарантия</span></div>
           <div class="arrow">→</div>
-          <div class="flow-node"><strong>Kaspi/WB</strong><span class="muted">привычная покупка</span></div>
+          <div class="flow-node"><span class="icon-line">04</span><strong>Kaspi/WB</strong><span class="muted">привычная покупка</span></div>
           <div class="arrow">→</div>
-          <div class="flow-node"><strong>Покупка</strong><span class="muted">решение принято</span></div>
+          <div class="flow-node"><span class="icon-line">05</span><strong>Покупка</strong><span class="muted">решение принято</span></div>
         </div>
       </div>
     </section>
@@ -900,11 +920,11 @@
     <section class="section" id="price">
       <div class="container grid two">
         <div class="bar-chart">
-          <span class="kicker">Price chart</span>
+          <span class="kicker">Сравнение цены</span>
           <h2>Сравнение цены</h2>
-          <div class="bar-row"><b>Bliss</b><div class="track"><div class="bar" data-width="17.2%"></div></div><b>60k</b></div>
-          <div class="bar-row"><b>Bork</b><div class="track"><div class="bar" data-width="77.1%"></div></div><b>270k</b></div>
-          <div class="bar-row"><b>Dyson</b><div class="track"><div class="bar" data-width="100%"></div></div><b>350k</b></div>
+          <div class="bar-row"><b>Bliss</b><div class="track"><div class="bar" data-width="17.2%"></div></div><b>60 000 тг</b></div>
+          <div class="bar-row"><b>Bork</b><div class="track"><div class="bar" data-width="77.1%"></div></div><b>270 000 тг</b></div>
+          <div class="bar-row"><b>Dyson</b><div class="track"><div class="bar" data-width="100%"></div></div><b>350 000 тг</b></div>
           <div class="price-note">Bliss находится в сильной ценовой позиции. Но низкая цена требует усиленного доверия, чтобы покупатель не считал продукт случайным аналогом.</div>
         </div>
         <div class="card">
@@ -934,7 +954,7 @@
 
     <section class="section">
       <div class="container">
-        <span class="kicker">Loss map</span>
+        <span class="kicker">Карта потерь</span>
         <h2>Где могут теряться покупки</h2>
         <div class="grid five">
           <div class="card loss-card"><span class="num">1</span><h3>Эффект как в рекламе</h3><p>Нужны демонстрации результата.</p></div>
@@ -948,7 +968,7 @@
 
     <section class="section" id="map">
       <div class="container">
-        <span class="kicker">Position map</span>
+        <span class="kicker">Карта позиционирования</span>
         <h2>Позиционная карта</h2>
         <p class="lead">Стратегическая гипотеза, не точное исследование рынка.</p>
         <div class="position-map">
@@ -967,15 +987,15 @@
 
     <section class="section">
       <div class="container">
-        <span class="kicker">Proof system</span>
+        <span class="kicker">Система доверия</span>
         <h2>Что нужно усилить</h2>
         <div class="grid three">
-          <div class="card"><h3>Real result</h3><p>Демонстрация результата и процесса.</p></div>
-          <div class="card"><h3>UGC</h3><p>Видео блогеров и покупателей.</p></div>
-          <div class="card"><h3>Reviews</h3><p>Отзывы Kaspi и social proof.</p></div>
-          <div class="card"><h3>Warranty</h3><p>Условия, надежность, ответы на страхи.</p></div>
-          <div class="card"><h3>Gift packaging</h3><p>Подарочный сценарий.</p></div>
-          <div class="card"><h3>FAQ + CTA</h3><p>Ответы и переход на Kaspi/WB.</p></div>
+          <div class="card"><span class="icon-line">01</span><h3>Реальный результат</h3><p>Демонстрация результата и процесса.</p></div>
+          <div class="card"><span class="icon-line">02</span><h3>UGC</h3><p>Видео блогеров и покупателей.</p></div>
+          <div class="card"><span class="icon-line">03</span><h3>Отзывы</h3><p>Отзывы Kaspi и доказательства от покупателей.</p></div>
+          <div class="card"><span class="icon-line">04</span><h3>Гарантия</h3><p>Условия, надежность, ответы на страхи.</p></div>
+          <div class="card"><span class="icon-line">05</span><h3>Подарочная упаковка</h3><p>Подарочный сценарий.</p></div>
+          <div class="card"><span class="icon-line">06</span><h3>Вопросы и кнопки</h3><p>Ответы и переход на Kaspi/WB.</p></div>
         </div>
       </div>
     </section>
@@ -983,18 +1003,29 @@
     <section class="section" id="mockups">
       <div class="container grid two">
         <div>
-          <span class="kicker">Landing showcase</span>
+          <span class="kicker">Лендинг-витрина</span>
           <h2>Лендинг-витрина</h2>
           <p class="lead">Это не интернет-магазин. Это страница доверия перед переходом на Kaspi/WB.</p>
         </div>
-        <div class="mockup">
-          <div class="mockup-head"><span>wireframe</span><span>landing</span></div>
-          <div class="mockup-body">
-            <div class="wire big"></div>
-            <div class="wire"></div>
-            <div class="wire-grid"><div class="wire"></div><div class="wire"></div></div>
-            <div class="wire"></div>
-            <div class="wire dark"></div>
+        <div class="showcase-frame">
+          <div class="showcase-top">
+            <div class="showcase-photo"><img src="assets/product-2.jpg" alt="Стайлер Bliss"></div>
+            <div class="showcase-copy">
+              <span class="kicker">первый экран</span>
+              <h3>Красивая укладка дома без покупки стайлера за 270-350к</h3>
+              <p>Показать продукт, результат, упаковку и понятный переход к покупке.</p>
+              <div class="btns">
+                <a class="btn primary" href="#mockups">Kaspi</a>
+                <a class="btn" href="#mockups">WB</a>
+              </div>
+            </div>
+          </div>
+          <div class="section-map">
+            <div class="section-row"><b>01</b><span>Результат укладки</span><span>фото/видео</span></div>
+            <div class="section-row"><b>02</b><span>Отзывы и UGC</span><span>доверие</span></div>
+            <div class="section-row"><b>03</b><span>Комплект и упаковка</span><span>подарок</span></div>
+            <div class="section-row"><b>04</b><span>Гарантия и вопросы</span><span>страхи</span></div>
+            <div class="section-row"><b>05</b><span>Переход на Kaspi/WB</span><span>покупка</span></div>
           </div>
         </div>
       </div>
@@ -1003,20 +1034,25 @@
     <section class="section">
       <div class="container grid two">
         <div class="mockup">
-          <div class="mockup-head"><span>mockup</span><span>Instagram / UGC</span></div>
+          <div class="mockup-head"><span>макет</span><span>Instagram / UGC</span></div>
           <div class="mockup-body">
-            <div class="wire-grid"><div class="wire"></div><div class="wire"></div></div>
-            <div class="wire big"></div>
-            <div class="wire"></div>
-            <div class="wire"></div>
+            <div class="photo-strip">
+              <div class="photo-tile"><img src="assets/product-3.jpg" alt="Bliss визуал 1"></div>
+              <div class="photo-tile"><img src="assets/product-4.jpg" alt="Bliss визуал 2"></div>
+              <div class="photo-tile"><img src="assets/product-5.jpg" alt="Bliss визуал 3"></div>
+            </div>
+            <div class="proof-note"><b>Что показывать</b><span class="muted">процесс укладки, результат, упаковку, короткие ответы на страхи.</span></div>
+            <div class="section-row"><b>01</b><span>сценарии сторис</span><span>5-10 шт.</span></div>
+            <div class="section-row"><b>02</b><span>промокоды блогеров</span><span>учет</span></div>
           </div>
         </div>
         <div class="mockup">
-          <div class="mockup-head"><span>mockup</span><span>Kaspi / WB card</span></div>
+          <div class="mockup-head"><span>макет</span><span>Карточка Kaspi/WB</span></div>
           <div class="mockup-body">
-            <div class="wire big"></div>
-            <div class="wire"></div>
-            <div class="wire-grid"><div class="wire"></div><div class="wire dark"></div></div>
+            <div class="showcase-photo"><img src="assets/product-6.jpg" alt="Bliss карточка продукта"></div>
+            <div class="section-row"><b>01</b><span>главное фото</span><span>понятно</span></div>
+            <div class="section-row"><b>02</b><span>отзывы и рейтинг</span><span>видно</span></div>
+            <div class="section-row"><b>03</b><span>гарантия и комплект</span><span>закрыто</span></div>
           </div>
         </div>
       </div>
@@ -1041,7 +1077,7 @@
             <li>блогер ведет в систему доверия;</li>
             <li>есть страница доказательств;</li>
             <li>блогеры считаются по таблице/промокодам;</li>
-            <li>UGC и отзывы работают как social proof;</li>
+            <li>UGC и отзывы работают как доказательства;</li>
             <li>переход на Kaspi/WB логичнее.</li>
           </ul>
         </div>
@@ -1066,27 +1102,27 @@
     <section class="section">
       <div class="container grid two">
         <div>
-          <span class="kicker">Deeper layer</span>
+          <span class="kicker">Глубокий слой</span>
           <h2>Что требует полного анализа</h2>
           <p class="lead">Это не входит в бесплатный экспресс-аудит. Здесь нужны данные, чтобы принимать решения по бюджетам.</p>
         </div>
         <div class="locked">
-          <div class="lock"><b>Продажи по месяцам</b><span>full audit</span></div>
-          <div class="lock"><b>Продажи после блогеров</b><span>full audit</span></div>
-          <div class="lock"><b>Стоимость каждого блогера</b><span>full audit</span></div>
-          <div class="lock"><b>Чистая прибыль с продажи</b><span>full audit</span></div>
-          <div class="lock"><b>Комиссии Kaspi/WB</b><span>full audit</span></div>
-          <div class="lock"><b>Возвраты/гарантии</b><span>full audit</span></div>
-          <div class="lock"><b>Конкуренты на Kaspi/WB</b><span>full audit</span></div>
-          <div class="lock"><b>ROMI по каналам</b><span>full audit</span></div>
-          <div class="lock"><b>WB Россия</b><span>full audit</span></div>
+          <div class="lock"><b>Продажи по месяцам</b><span>полный аудит</span></div>
+          <div class="lock"><b>Продажи после блогеров</b><span>полный аудит</span></div>
+          <div class="lock"><b>Стоимость каждого блогера</b><span>полный аудит</span></div>
+          <div class="lock"><b>Чистая прибыль с продажи</b><span>полный аудит</span></div>
+          <div class="lock"><b>Комиссии Kaspi/WB</b><span>полный аудит</span></div>
+          <div class="lock"><b>Возвраты/гарантии</b><span>полный аудит</span></div>
+          <div class="lock"><b>Конкуренты на Kaspi/WB</b><span>полный аудит</span></div>
+          <div class="lock"><b>ROMI по каналам</b><span>полный аудит</span></div>
+          <div class="lock"><b>WB Россия</b><span>полный аудит</span></div>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <span class="kicker">Next moves</span>
+        <span class="kicker">Следующие шаги</span>
         <h2>Возможные следующие шаги</h2>
         <div class="grid three">
           <div class="card"><h3>Быстрые внедрения</h3><ul class="simple-list"><li>оффер</li><li>UGC</li><li>таблица блогеров</li><li>креативные гипотезы</li><li>структура доверия</li></ul></div>
@@ -1098,7 +1134,7 @@
 
     <section class="section final">
       <div class="container">
-        <span class="kicker">Final CTA</span>
+        <span class="kicker">Финальный шаг</span>
         <h2>Bliss уже имеет рабочий канал. Следующий шаг — сделать его управляемым.</h2>
         <p class="lead">Можно усилить доверие к бренду, собрать доказательства в одну систему и точнее считать эффективность блогеров.</p>
         <div class="btns">
@@ -1110,7 +1146,7 @@
   </main>
 
   <footer class="footer">
-    <div class="container">Prototype / Bliss express audit / RazDva. Расчеты являются ориентирами по данным брифа, не обещанием результата.</div>
+    <div class="container">Прототип / экспресс-аудит Bliss / RazDva. Расчеты являются ориентирами по данным брифа, не обещанием результата.</div>
   </footer>
 
   <script>
